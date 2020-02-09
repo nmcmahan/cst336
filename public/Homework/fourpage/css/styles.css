@@ -9,15 +9,18 @@ header,main,nav,footer {
 
 #welcomeText,#oopexplain{
     color: white;
+    font-size: 1.5em;
     
 }
 
 #cexplain {
     color: orange;
+    font-size: 1.5em;
 }
 
 #javaexplain{
     color: yellow;
+    font-size: 1.5em;
 }
 
 nav a {
@@ -36,9 +39,11 @@ nav a:hover {
 
 #cpluspluspic,#objectpic {
     width: 50%;
+    height: 30%;
     margin: 20px;
 }
 
 #javapic {
     width: 30%;
+    height: 30%;
 }
