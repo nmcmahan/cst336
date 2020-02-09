@@ -1,0 +1,44 @@
+body {
+                background-color: black;
+                color:gray;
+}
+
+header,main,nav,footer {
+    text-align:center;
+}
+
+#welcomeText,#oopexplain{
+    color: white;
+    
+}
+
+#cexplain {
+    color: orange;
+}
+
+#javaexplain{
+    color: yellow;
+}
+
+nav a {
+    padding:15px;
+    padding-bottom: 4px;
+    font-size: 1.8em;
+    text-decoration: none;
+    color:white;
+}
+
+nav a:hover {
+    border-bottom:2px orange solid;
+    font-size: 2em;
+    transition: .9s;
+}
+
+#cpluspluspic,#objectpic {
+    width: 50%;
+    margin: 20px;
+}
+
+#javapic {
+    width: 30%;
+}
