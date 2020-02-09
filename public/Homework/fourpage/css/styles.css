@@ -37,13 +37,17 @@ nav a:hover {
     transition: .9s;
 }
 
-#cpluspluspic,#objectpic {
-    width: 50%;
-    height: 30%;
-    margin: 20px;
+#cpluspluspic{
+    width: 300px;
+    height: 200px;
+}
+
+#objectpic {
+    width: 200px;
+    height: 200px;
 }
 
 #javapic {
-    width: 30%;
-    height: 30%;
+    width: 200px;
+    height: 250px;
 }
