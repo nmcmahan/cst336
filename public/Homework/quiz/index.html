@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+    
+<head>
+  <meta charset="utf-8">
+  <title>US Quiz</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" 
+  integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js" type="text/javascript"></script>
+  <script>
+      $(document).ready(function(){
+          $("button").on("click", gradeQuiz);
+          
+          $(".q5Choice").on("click", function() {
+              $(".q5Choice").css("backgroud","");
+              $(this).css("backgroud","rgb(255, 255, 0");
+          });
+          
+          var score=0;
+          var attempts= localStorage.getItem("total_attempts");
+          
+          function isFormValid(){
+              let isValid=true;
+              if ($("#q1").val()=="") {
+                  isValid=false;
+                  $("#validationFdbk").html("Question 1 was not answered");
+              }
+              return isValid;
+          }
+          
+          
+          function gradeQuiz() {
+              $("#validationFdbk").html("");
+              
+              if (!isFormValid()) {
+                  return;
+              }
+              
+              let score=0;
+              let q1Response = $("#q1").val().toLowerCase();
+              let q2Response = $("#q2").val();
+              let q4Response = $("input[name=q4]:checked").val();
+              
+              if (q1Response=="sacramento") {
+                  $("#q1Feedback").html("Correct!");
+                  $("#q1Feedback").attr("class", "bg-warning text-white");
+                  $("#markImg1").html("<img src='img/checkmark.png' alt='checkmark'>");
+                  score += 20;
+              } else {
+                  $("#q1Feedback").html("Incorrect!");
+                  $("#q1Feedback").attr("class", "bg-warning text-white");
+                  $("#markImg1").html("<img src='img/xmark.png' alt='xmark'>");
+              }
+              
+              if(q2Response=="mo") {
+                  $("#q2Feedback").html("Correct!");
+                  $("#q2Feedback").attr("class", "bg-warning text-white");
+                  $("#markImg2").html("<img src='img/checkmark.png' alt='checkmark'>");
+                  score += 20;
+              } else {
+                  $("#q2Feedback").html("Incorrect!");
+                  $("#q2Feedback").attr("class", "bg-warning text-white");
+                  $("#markImg2").html("<img src='img/xmark.png' alt='xmark'>");
+              }
+              
+              if ($("#Jefferson").is(":checked") && $("#Roosevelt").is(":checked") && !$("#Jackson").is(":checked") && !$("#Franklin").is(":checked")) {
+                  $("#q3Feedback").html("Correct!");
+                  $("#q3Feedback").attr("class", "bg-warning text-white");
+                  $("#markImg3").html("<img src='img/checkmark.png' alt='checkmark'>");
+                  score += 20;
+              } else {
+                  $("#q3Feedback").html("Incorrect!");
+                  $("#q3Feedback").attr("class", "bg-warning text-white");
+                  $("#markImg3").html("<img src='img/xmark.png' alt='xmark'>");
+              }
+              
+              if (q4Response=="Rhode Island") {
+                  $("#q4Feedback").html("Correct!");
+                  $("#q4Feedback").attr("class", "bg-warning text-white");
+                  $("#markImg4").html("<img src='img/checkmark.png' alt='checkmark'>");
+                  score += 20;
+              } else {
+                 $("#q4Feedback").html("Incorrect!");
+                  $("#q4Feedback").attr("class", "bg-warning text-white");
+                  $("#markImg4").html("<img src='img/xmark.png' alt='xmark'>");
+              }
+              if ($("seal2").css("backgroud-color") == "rgb(255, 255, 0") {
+                  $("#q5Feedback").html("Correct!");
+                  $("#q5Feedback").attr("class", "bg-warning text-white");
+                  $("#markImg5").html("<img src='img/checkmark.png' alt='checkmark'>");
+                  score += 20;
+              } else {
+                   $("#q5Feedback").html("Incorrect!");
+                  $("#q5Feedback").attr("class", "bg-warning text-white");
+                  $("#markImg5").html("<img src='img/xmark.png' alt='xmark'>");
+              }
+              
+              $("#totalScore").html(`Total Score: ${score}`);
+              $("#totalAttempts").html(` Total Attempts: ${++attempts}`);
+              localStorage.setItem("total_attempts", attempts);
+          }
+      });
+  </script>
+</head>
+
+<body class="text-center">
+ <h1 class="jumbotron">US Geography Quiz</h1>
+ 
+ <h3><span id="markImg1"></span>What is the capital of California?</h3>
+ <input type="text" id="q1"> <br><br>
+ <div id="q1Feedback"></div> <br>
+ <h3><span id="markImg2"></span>What is the longest river?</h3>
+ <select id="q2">
+     <option value="">Select one</option>
+     <option value="ms">Mississippi</option>
+     <option value="mo">Missouri</option>
+     <option value="co">Colorado</option>
+     <option value="de">Delaware</option>
+ </select> <br><br>
+ <div id="q2feedback"></div> <br><br>
+ <h3><span id="markImg3"></span>What Presidents are carved into Mt. Rushmore?</h3>
+ <input type="checkbox" id="Jackson"> <label for="Jackson">A. Jackson</label>
+ <input type="checkbox" id="Franklin"> <label for="Franklin">B. Franklin</label>
+ <input type="checkbox" id="Jefferson"> <label for="Jefferson">T. Jefferson</label>
+ <input type="checkbox" id="Roosevelt"> <label for="Roosevelt">T. Roosevelt</label>
+ <br><br>
+ <div id="q3Feedback"></div> <br><br>
+ <h3><span id="markImg4"></span>What is the smallest US State?</h3>
+ <input type="radio" name="q4" id="me" value="Maine"> <label for="me">Maine</label>
+ <input type="radio" name="q4" id="ri" value="Rhode Island"> <label for="ri">Rhode island</label>
+ <input type="radio" name="q4" id="md" value="Maryland"> <label for="md">Maryland</label>
+ <input type="radio" name="q4" id="de" value="Delaware"> <label for="de">Delaware</label>
+ <div id="q4Feedback"></div> <br><br>
+ <h3><span id="markImg5"></span>What Image is the great seal of California?</h3>
+ <img src="img/seal1.png" alt="Seal 1" class="q5Choice" id="seal1">
+ <img src="img/seal2.png" alt="Seal 2" class="q5Choice" id="seal2">
+ <img src="img/seal3.png" alt="Seal 3" class="q5Choice" id="seal3">
+ <div id="q5Feedback"></div> <br><br>
+ <h3 id="validationFdbk" class="bg-danger text-white"></h3>
+ <button class="btn btn-primary">Submit</button> <br>
+ <h2 id="totalScore" class="text-info"></h2>
+ <h3 id="totalAttempts"></h3>
+</body>
+</html>
