@@ -1,3 +1,48 @@
-#white {
-    display:none;
+body {
+    background-color: gray;
+}
+
+h1 {
+    color:purple;
+    
+}
+
+input {
+    font-size:larger;
+    color: red;
+}
+
+h3 {
+    color:orange;
+    padding-top:10px;
+    padding-bottom:5px;
+}
+
+.selection {
+    font-size: small;
+    color: white;
+}
+
+.singleword {
+    color:white;
+}
+
+.symbol {
+    height: 200px;
+    width: 200px;
+    background-color: lightgray;
+    border-radius:75px;
+}
+
+#feedback {
+    font-size: large;
+    color:purple;
+    background-color:white;
+    border: 5px solid black;
+}
+
+#wheel {
+    width:75%;
+    background:rgb(60, 60, 60);
+    border-radius:10px;
 }
