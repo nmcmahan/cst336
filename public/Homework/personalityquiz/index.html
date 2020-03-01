@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+    
+<head>
+  <meta charset="utf-8">
+  <title>US Quiz</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" 
+  integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js" type="text/javascript"></script>
+  <script>
+      $(document).ready(function(){
+          $("button").on("click", gradeQuiz);
+          
+          $(".q5Choice").on("click", function() {
+              $(".q5Choice").css("backgroud","");
+              $(this).css("backgroud","rgb(255, 255, 0");
+          });
+          
+          var score=0;
+          var attempts= localStorage.getItem("total_attempts");
+          
+          function isFormValid(){
+              let isValid=true;
+              if ($("#q1").val()=="") {
+                  isValid=false;
+                  $("#validationFdbk").html("Question 1 was not answered");
+              }
+              return isValid;
+          }
+          
+          
+          function gradeQuiz() {
+              $("#validationFdbk").html("");
+              
+              if (!isFormValid()) {
+                  return;
+              }
+              
+              let score=0;
+              let q1Response = $("#q1").val().toLowerCase();
+              let q2Response = $("#q2").val();
+              let q4Response = $("input[name=q4]:checked").val();
+              
+              if (q1Response=="sacramento") {
+                  $("#q1Feedback").html("Correct!");
+                  $("#q1Feedback").attr("class", "bg-warning text-white");
+                  $("#markImg1").html("<img src='img/checkmark.png' alt='checkmark'>");
+                  score += 20;
+              } else {
+                  $("#q1Feedback").html("Incorrect!");
+                  $("#q1Feedback").attr("class", "bg-warning text-white");
+                  $("#markImg1").html("<img src='img/xmark.png' alt='xmark'>");
+              }
+              
+              if(q2Response=="mo") {
+                  $("#q2Feedback").html("Correct!");
+                  $("#q2Feedback").attr("class", "bg-warning text-white");
+                  $("#markImg2").html("<img src='img/checkmark.png' alt='checkmark'>");
+                  score += 20;
+              } else {
+                  $("#q2Feedback").html("Incorrect!");
+                  $("#q2Feedback").attr("class", "bg-warning text-white");
+                  $("#markImg2").html("<img src='img/xmark.png' alt='xmark'>");
+              }
+              
+              if ($("#Jefferson").is(":checked") && $("#Roosevelt").is(":checked") && !$("#Jackson").is(":checked") && !$("#Franklin").is(":checked")) {
+                  $("#q3Feedback").html("Correct!");
+                  $("#q3Feedback").attr("class", "bg-warning text-white");
+                  $("#markImg3").html("<img src='img/checkmark.png' alt='checkmark'>");
+                  score += 20;
+              } else {
+                  $("#q3Feedback").html("Incorrect!");
+                  $("#q3Feedback").attr("class", "bg-warning text-white");
+                  $("#markImg3").html("<img src='img/xmark.png' alt='xmark'>");
+              }
+              
+              if (q4Response=="Rhode Island") {
+                  $("#q4Feedback").html("Correct!");
+                  $("#q4Feedback").attr("class", "bg-warning text-white");
+                  $("#markImg4").html("<img src='img/checkmark.png' alt='checkmark'>");
+                  score += 20;
+              } else {
+                 $("#q4Feedback").html("Incorrect!");
+                  $("#q4Feedback").attr("class", "bg-warning text-white");
+                  $("#markImg4").html("<img src='img/xmark.png' alt='xmark'>");
+              }
+              if ($("seal2").css("backgroud-color") == "rgb(255, 255, 0") {
+                  $("#q5Feedback").html("Correct!");
+                  $("#q5Feedback").attr("class", "bg-warning text-white");
+                  $("#markImg5").html("<img src='img/checkmark.png' alt='checkmark'>");
+                  score += 20;
+              } else {
+                   $("#q5Feedback").html("Incorrect!");
+                  $("#q5Feedback").attr("class", "bg-warning text-white");
+                  $("#markImg5").html("<img src='img/xmark.png' alt='xmark'>");
+              }
+              
+              $("#totalScore").html(`Total Score: ${score}`);
+              $("#totalAttempts").html(` Total Attempts: ${++attempts}`);
+              localStorage.setItem("total_attempts", attempts);
+          }
+      });
+  </script>
+</head>
+
+<body class="text-center">
+ <h1 class="jumbotron">What Color of mana are you?</h1>
+ 
+ <h3><span id="markImg1"></span>Please enter your name</h3>
+ <input type="text" id="name"> <br><br>
+ <h3><span id="question1"></span>What is you favorite environment?</h3>
+ <input type="radio" name="q1" id="wh" value="white"> <label for="wh">Sunny and open</label>
+ <input type="radio" name="q1" id="bu" value="blue"> <label for="bu">Lakes or beaches</label>
+ <input type="radio" name="q1" id="bl" value="black"> <label for="bl">Damp caves or marshes</label>
+ <input type="radio" name="q1" id="rd" value="red"> <label for="rd">Rocky hills or mountains</label>
+ <input type="radio" name="q1" id="gr" value="green"> <label for="gr">Dense forests</label>
+ <h3><span id="question2"></span>What is your preferred way of doing an assignment</h3>
+ <input type="radio" name="q2" id="wh" value="white"> <label for="wh">Create a team and work together</label>
+ <input type="radio" name="q2" id="bu" value="blue"> <label for="bu">Create a plan first, then stick to it</label>
+ <input type="radio" name="q2" id="bl" value="black"> <label for="bl">Get it done with minimal effort</label>
+ <input type="radio" name="q2" id="rd" value="red"> <label for="rd">Just get started and work everything out afterward</label>
+ <input type="radio" name="q2" id="gr" value="green"> <label for="gr">Try to do it yourself, but ask for help if needed</label>
+ <h3><span id="question3"></span>Which word do you associate the most with?</h3>
+ <input type="radio" name="q3" id="wh" value="white"> <label for="wh">Loyal</label>
+ <input type="radio" name="q3" id="bu" value="blue"> <label for="bu">Thoughtful</label>
+ <input type="radio" name="q3" id="bl" value="black"> <label for="bl">Ambitious</label>
+ <input type="radio" name="q3" id="rd" value="red"> <label for="rd">Spontaneous</label>
+ <input type="radio" name="q3" id="gr" value="green"> <label for="gr">Steadfast</label>
+ <h3><span id="question4"></span>Which of these would you most like to have?</h3>
+ <input type="radio" name="q4" id="wh" value="white"> <label for="wh">Friends</label>
+ <input type="radio" name="q4" id="bu" value="blue"> <label for="bu">Knowledge</label>
+ <input type="radio" name="q4" id="bl" value="black"> <label for="bl">Power</label>
+ <input type="radio" name="q4" id="rd" value="red"> <label for="rd">Freedom</label>
+ <input type="radio" name="q4" id="gr" value="green"> <label for="gr">Strength</label>
+ <h3><span id="question5"></span>If you had one power, what would it be?</h3>
+ <input type="radio" name="q5" id="wh" value="white"> <label for="wh">Healing</label>
+ <input type="radio" name="q5" id="bu" value="blue"> <label for="bu">Telepathy</label>
+ <input type="radio" name="q5" id="bl" value="black"> <label for="bl">Necromancy</label>
+ <input type="radio" name="q5" id="rd" value="red"> <label for="rd">Pyromancy</label>
+ <input type="radio" name="q5" id="gr" value="green"> <label for="gr">Animal summoning</label>
+ <button class="btn btn-primary">Submit</button> <br>
+ 
+ <div id="feedback"></div>
+ <img src="img/whitemana.png" alt="image" id="white" class="resultimgs">
+ <img src="img/bluemana.png" alt="image" id="blue" class="resultimgs">
+ <img src="img/blackmana.png" alt="image" id="black" class="resultimgs">
+ <img src="img/redmana.png" alt="image" id="red" class="resultimgs">
+ <img src="img/greenmana.png" alt="image" id="green" class="resultimgs">
+ 
+   <script type="text/javascript" src="js/app.js"></script>
+</body>
+</html>
