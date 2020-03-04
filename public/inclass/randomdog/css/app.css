@@ -1,0 +1,20 @@
+img {
+    width: 30%;
+}
+
+#opener {
+    background-color: lightgray;
+}
+
+#prompt {
+    font-size: medium;
+}
+
+#numprompt {
+    float: left;
+    margin-right: 10px;
+}
+
+#images {
+    background-color: white;
+}
