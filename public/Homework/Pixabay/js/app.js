@@ -1,5 +1,5 @@
 $(document).ready(function(){
-var keyword = ["otter", "sun", "sports"];
+var keyword = ["otter", "sun", "cat"];
 var API_KEY = '15448261-ac74d31ddd5ba964f8fafb916';
 $("#images").empty();
 var random = Math.floor((Math.random() * 3) + 1);
