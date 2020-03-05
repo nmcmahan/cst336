@@ -1,0 +1,19 @@
+.container {
+    background-color: lightgray;
+}
+
+.prompt {
+    float: left;
+    color: blue;
+    font-size: large;
+    padding-right: 10px;
+}
+
+p {
+    font-size: larger;
+    color: purple;
+}
+
+#button {
+    color: blue;
+}
