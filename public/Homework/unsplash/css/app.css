@@ -1,0 +1,52 @@
+.container {
+    background-color: lightblue;
+    margin-bottom: 20px;
+}
+
+body {
+    background-color: black;
+}
+
+h1 {
+    color: purple;
+}
+
+p {
+    font-size: 2em;
+    color: purple;
+}
+
+.resultimg {
+    border: 5px solid white;
+}
+
+#prompt {
+    color: purple;
+    font-size: large;
+    padding-right: 10px;
+}
+
+#images {
+    float: left;
+}
+
+#keyword {
+    padding-right: 20px;
+    font-size: large;
+    color: purple;
+}
+
+#button {
+    background-color: blue;
+    text-align-last: center;
+    font-size: larger;
+    color: white;
+    margin-left: 20px;
+    border-radius: 10px;
+}
+
+.licon {
+    padding-bottom: 20px;
+    padding-left: 10px;
+}
+
